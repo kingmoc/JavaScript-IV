@@ -48,15 +48,17 @@ class Student extends Person {
 	}
 
 	listSubjects() {
-		return this.favSubjects;
+		for(let i = 0; i < this.favSubjects.length; i++) {
+			console.log(this.favSubjects[i]);
+		}
 	}
 
-	PRAssignment(subject ) {
-		return `${student.name} has submitted a PR for ${subject}`;
+	PRAssignment(subject) {
+		return `${this.name} has submitted a PR for ${subject}`;
 	}
 
-	sprintChallenge(){
-		return `${student.name} has begun sprint challenge on ${subject}`;
+	sprintChallenge(subject){
+		return `${this.name} has begun sprint challenge on ${subject}`;
 	} 
 } // end Student *** childof-Person ***
 
@@ -72,11 +74,11 @@ class ProgramManager extends Instructor {
 	}
 
 	standup(slackChannel) {
-		return `${ProgramManager.name} announces to ${slackChannel}, @channel standy times!​​​​​`;
+		return `${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`;
 	}
 
 	debugsCode(student, subject) {
-		return `${ProgramManager.name} debugs ${student.name}'s code on ${subject}`
+		return `${this.name} debugs ${student.name}'s code on ${subject}`
 	}
 } // end ProgramManger *** childof-Instructor ***
 
@@ -112,6 +114,7 @@ const drDale = new Instructor({
 	name: 'Sylvia Williams',
 	location: 'Alabaster, Al',
 	age: 58,
+	specialty: 'Finance',
 	gradClassName: 'MTSU',
 	favInstructor: 'Mrs. Peterson',
 	catchPhrase: `To see a Turtle take water`
@@ -121,8 +124,33 @@ const drDale = new Instructor({
 	name: 'Calvin Brazier',
 	age: 33,
 	location: 'Murfreesboro, Tn',
-	// previousBackground: 'IT Specialist',
+	previousBackground: 'Trash Pickup'
 	// className: 'WEB 20',
 	// favSubjects: ['Javascript', 'HTML', 'CSS']
 });
+
+// let {name, age, catchPhrase,} = williams;
+
+// ********** Student_Test Calls ********** //
+console.log(joey.listSubjects());
+console.log(kate.PRAssignment('HTML'));
+console.log(joey.sprintChallenge('CSS'));
+console.log(joey.speak());
+
+
+// ********** Instructor_Test Calls ********** //
+console.log(drDale.demo('Javascript'));
+console.log(drDale.grade(joey, 'CSS'));
+console.log(drDale.catchPhrase);
+
+// ********** ProgramManager_Test Calls ********** //
+console.log(williams.catchPhrase);
+console.log(williams.gradClassName);
+console.log(williams.specialty);
+console.log(williams.standup('web20_help'));
+console.log(williams.debugsCode(kate, 'CSS'));
+
+// ********** Person_Test Calls ********** //
+console.log(calvin.speak());
+
 
