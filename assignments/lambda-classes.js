@@ -33,6 +33,12 @@ class Instructor extends Person{
 	grade(student, subject) {
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
+
+	randGrade(student) {
+		let rand = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		let total = rand + student.grade;
+		return `I've added ${rand} points to your ${student.grade} which totals: ${total}`;
+	}
 } // end Instructor *** childOf-Person ***
 
 
@@ -45,6 +51,7 @@ class Student extends Person {
 		this.previousBackground = att.previousBackground;
 		this.className = att.className;
 		this.favSubjects = att.favSubjects;
+		this.grade = att.grade;
 	}
 
 	listSubjects() {
@@ -87,6 +94,7 @@ const joey = new Student({
 	name: 'Joey Garcia',
 	age: 33,
 	location: 'Tullahoma, Tn',
+	grade: 98,
 	previousBackground: 'IT Specialist',
 	className: 'WEB 20',
 	favSubjects: ['Javascript', 'HTML', 'CSS']
@@ -96,6 +104,7 @@ const kate = new Student({
 	name: 'Kate Garcia',
 	age: 35,
 	location: 'Tullahoma, Tn',
+	grade: 100,
 	previousBackground: 'Beauty Specialist',
 	className: 'LifeCare',
 	favSubjects: ['Math', 'Reading', 'YoGa']
@@ -142,6 +151,9 @@ console.log(joey.speak());
 console.log(drDale.demo('Javascript'));
 console.log(drDale.grade(joey, 'CSS'));
 console.log(drDale.catchPhrase);
+// *** Stretch *** //
+console.log(drDale.randGrade(joey));
+console.log(drDale.randGrade(kate));
 
 // ********** ProgramManager_Test Calls ********** //
 console.log(williams.catchPhrase);
